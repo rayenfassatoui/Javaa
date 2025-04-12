@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, Long> {
-    List<Teacher> findByNameContainingIgnoreCase(String name);
     List<Teacher> findByDepartment(String department);
     List<Teacher> findBySubjects(Subject subject);
     Optional<Teacher> findByEmail(String email);

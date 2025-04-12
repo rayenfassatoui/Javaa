@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -40,6 +43,20 @@ public class Student {
     @Column(name = "address")
     private String address;
 
+    @Column(name = "department", length = 50)
+    private String department;
+
+    @Column(name = "enrollment_year")
+    private Integer enrollmentYear;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "student_subjects",
+        joinColumns = @JoinColumn(name = "student_id"),
+        inverseJoinColumns = @JoinColumn(name = "subject_id")
+    )
+    private Set<Subject> subjects = new HashSet<>();
+
     @Past(message = "Date of birth must be in the past")
     @Column(name = "dob")
     private LocalDate dateOfBirth;
@@ -51,4 +68,37 @@ public class Student {
     protected void onCreate() {
         registrationDate = LocalDateTime.now();
     }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public Integer getEnrollmentYear() {
+        return enrollmentYear;
+    }
+
+    public void setEnrollmentYear(Integer enrollmentYear) {
+        this.enrollmentYear = enrollmentYear;
+    }
+
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
+
+    public Date getDateOfBirth() {
+        return java.sql.Date.valueOf(dateOfBirth);
+    }
+
 } 

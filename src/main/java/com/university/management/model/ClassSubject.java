@@ -2,10 +2,12 @@ package com.university.management.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -30,4 +32,34 @@ public class ClassSubject {
     @ManyToOne
     @JoinColumn(name = "teacher_id", nullable = false)
     private Teacher teacher;
-} 
+    
+    // Explicit getter for classEntity to ensure compatibility
+    public Class getClassEntity() {
+        return classEntity;
+    }
+    
+    // Explicit setter for classEntity to ensure compatibility
+    public void setClassEntity(Class classEntity) {
+        this.classEntity = classEntity;
+    }
+    
+    // Explicit getter for subject to ensure compatibility
+    public Subject getSubject() {
+        return subject;
+    }
+    
+    // Explicit setter for subject to ensure compatibility
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+    
+    // Explicit getter for teacher to ensure compatibility
+    public Teacher getTeacher() {
+        return teacher;
+    }
+    
+    // Explicit setter for teacher to ensure compatibility
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+}

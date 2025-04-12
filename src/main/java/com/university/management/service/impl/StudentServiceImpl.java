@@ -47,7 +47,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     @Transactional(readOnly = true)
     public List<Student> findByNameContaining(String name) {
-        return studentRepository.findByNameContainingIgnoreCase(name);
+        return studentRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(name, name);
     }
 
     @Override

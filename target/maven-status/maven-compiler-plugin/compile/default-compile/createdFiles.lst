@@ -1,0 +1,12 @@
+com\university\management\service\ScheduleService.class
+com\university\management\model\Student.class
+com\university\management\controller\ScheduleController$DayOfWeek.class
+com\university\management\service\StudentService.class
+com\university\management\controller\ScheduleController.class
+com\university\management\model\Teacher.class
+com\university\management\model\Class.class
+com\university\management\service\ClassSubjectService.class
+com\university\management\model\Schedule.class
+com\university\management\controller\HomeController.class
+com\university\management\model\ClassSubject.class
+com\university\management\model\Subject.class

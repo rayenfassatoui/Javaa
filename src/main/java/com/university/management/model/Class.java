@@ -34,4 +34,14 @@ public class Class {
     
     @Column(name = "year")
     private Integer year;
-} 
+
+    // Explicit getter for id to ensure compatibility
+    public Long getId() {
+        return id;
+    }
+    
+    // Explicit setter for id to ensure compatibility
+    public void setId(Long id) {
+        this.id = id;
+    }
+}

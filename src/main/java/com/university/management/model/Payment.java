@@ -47,8 +47,13 @@ public class Payment {
     protected void onCreate() {
         paymentDate = LocalDateTime.now();
     }
+    
+    // Explicit getter for amount to ensure compatibility
+    public BigDecimal getAmount() {
+        return amount;
+    }
 
     public enum PaymentMethod {
         CASH, CREDIT_CARD, BANK_TRANSFER, CHECK
     }
-} 
+}

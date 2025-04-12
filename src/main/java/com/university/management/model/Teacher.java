@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,4 +39,22 @@ public class Teacher {
 
     @Column(name = "specialization", length = 100)
     private String specialization;
-} 
+    
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+        name = "teacher_subject",
+        joinColumns = @JoinColumn(name = "teacher_id"),
+        inverseJoinColumns = @JoinColumn(name = "subject_id")
+    )
+    private Set<Subject> subjects = new HashSet<>();
+    
+    // Explicit getter for email to ensure compatibility
+    public String getEmail() {
+        return email;
+    }
+    
+    // Virtual property for name - used by findByNameContainingIgnoreCase
+    public String getName() {
+        return firstName + " " + lastName;
+    }
+}

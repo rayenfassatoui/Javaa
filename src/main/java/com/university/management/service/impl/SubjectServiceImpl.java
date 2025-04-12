@@ -83,7 +83,7 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     @Transactional(readOnly = true)
     public List<Subject> findByCredits(Integer credits) {
-        return subjectRepository.findByCredits(credits);
+        return subjectRepository.findByCreditHours(credits);
     }
 
     @Override

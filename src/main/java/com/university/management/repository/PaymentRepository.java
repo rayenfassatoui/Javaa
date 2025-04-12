@@ -19,6 +19,4 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
     List<Payment> findByAmountGreaterThan(BigDecimal amount);
     List<Payment> findByAmountGreaterThanEqual(Double amount);
     List<Payment> findByPaymentMethod(PaymentMethod paymentMethod);
-    List<Payment> findByPaymentMethod(String paymentMethod);
-    List<Payment> findByPaymentMethodEnum(PaymentMethod paymentMethod);
 } 

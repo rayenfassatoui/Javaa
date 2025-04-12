@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bf2b03e0-de15-41ff-8d10-bc0a46a66db1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/model/ClassSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/model/ClassSubject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/model/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/model/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/model/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/model/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/model/Teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/repository/PaymentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/repository/PaymentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/repository/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/repository/TeacherRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/repository/TeacherRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/service/impl/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/service/impl/StudentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/service/impl/SubjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/service/impl/SubjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/university/management/service/impl/TeacherServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/university/management/service/impl/TeacherServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/UniversityManagementApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/controller/ClassController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/controller/ClassSubjectController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/controller/EnrollmentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/controller/PaymentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/controller/ScheduleController$DayOfWeek.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/controller/ScheduleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/controller/StudentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/controller/SubjectController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/controller/TeacherController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Class.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/ClassSubject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Enrollment$EnrollmentStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Enrollment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Grade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Payment$PaymentMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Payment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Schedule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Subject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/model/Teacher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/repository/ClassRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/repository/ClassSubjectRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/repository/EnrollmentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/repository/GradeRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/repository/PaymentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/repository/ScheduleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/repository/StudentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/repository/SubjectRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/repository/TeacherRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/ClassService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/ClassSubjectService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/EnrollmentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/GradeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/PaymentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/ScheduleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/StudentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/SubjectService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/TeacherService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/impl/ClassServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/impl/ClassSubjectServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/impl/EnrollmentServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/impl/GradeServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/impl/PaymentServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/impl/ScheduleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/impl/StudentServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/impl/SubjectServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/university/management/service/impl/TeacherServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2vdvv6EHWXdOKDU9h8T3b9RLOKr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.UniversityManagementApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/rayen/OneDrive/Bureau/Javaa",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="UniversityManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="management" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.university.management.UniversityManagementApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf2b03e0-de15-41ff-8d10-bc0a46a66db1" name="Changes" comment="" />
+      <created>1744487992188</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744487992188</updated>
+      <workItem from="1744487993230" duration="116000" />
+      <workItem from="1744489700893" duration="456000" />
+      <workItem from="1744490248516" duration="1248000" />
+      <workItem from="1744495196873" duration="5345000" />
+      <workItem from="1744500592430" duration="885000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
