@@ -31,4 +31,7 @@ public class Class {
 
     @Column(name = "department", length = 50)
     private String department;
+    
+    @Column(name = "year")
+    private Integer year;
 } 
