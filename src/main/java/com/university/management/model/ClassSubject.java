@@ -62,4 +62,14 @@ public class ClassSubject {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
+    
+    // Explicit getter for id to ensure compatibility
+    public Long getId() {
+        return id;
+    }
+    
+    // Explicit setter for id to ensure compatibility
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

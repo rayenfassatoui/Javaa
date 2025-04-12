@@ -48,9 +48,74 @@ public class Teacher {
     )
     private Set<Subject> subjects = new HashSet<>();
     
+    // Explicit getter for id to ensure compatibility
+    public Long getId() {
+        return id;
+    }
+    
+    // Explicit setter for id to ensure compatibility
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    // Explicit getter for firstName to ensure compatibility
+    public String getFirstName() {
+        return firstName;
+    }
+    
+    // Explicit setter for firstName to ensure compatibility
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    
+    // Explicit getter for lastName to ensure compatibility
+    public String getLastName() {
+        return lastName;
+    }
+    
+    // Explicit setter for lastName to ensure compatibility
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    
     // Explicit getter for email to ensure compatibility
     public String getEmail() {
         return email;
+    }
+    
+    // Explicit setter for email to ensure compatibility
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    // Explicit getter for department to ensure compatibility
+    public String getDepartment() {
+        return department;
+    }
+    
+    // Explicit setter for department to ensure compatibility
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+    
+    // Explicit getter for specialization to ensure compatibility
+    public String getSpecialization() {
+        return specialization;
+    }
+    
+    // Explicit setter for specialization to ensure compatibility
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+    
+    // Explicit getter for subjects to ensure compatibility
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+    
+    // Explicit setter for subjects to ensure compatibility
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
     }
     
     // Virtual property for name - used by findByNameContainingIgnoreCase
