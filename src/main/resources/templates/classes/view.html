@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col">
+                <h2>Class Details</h2>
+            </div>
+            <div class="col-auto">
+                <a th:href="@{/classes}" class="btn btn-secondary">Back to List</a>
+                <a th:href="@{/classes/{id}/edit(id=${classEntity.id})}" class="btn btn-warning">Edit</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-md-3 fw-bold">ID:</div>
+                    <div class="col-md-9" th:text="${classEntity.id}"></div>
+                </div>
+                
+                <div class="row mb-2">
+                    <div class="col-md-3 fw-bold">Name:</div>
+                    <div class="col-md-9" th:text="${classEntity.name}"></div>
+                </div>
+                
+                <div class="row mb-2">
+                    <div class="col-md-3 fw-bold">Capacity:</div>
+                    <div class="col-md-9" th:text="${classEntity.capacity}"></div>
+                </div>
+                
+                <div class="row mb-2">
+                    <div class="col-md-3 fw-bold">Room:</div>
+                    <div class="col-md-9" th:text="${classEntity.room ?: 'Not assigned'}"></div>
+                </div>
+                
+                <div class="row mb-2">
+                    <div class="col-md-3 fw-bold">Department:</div>
+                    <div class="col-md-9" th:text="${classEntity.department ?: 'Not assigned'}"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- We could add related information like enrolled students, assigned subjects, etc. here -->
+        <div class="mt-4">
+            <h3>Actions</h3>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">View Enrolled Students</a>
+                <a href="#" class="list-group-item list-group-item-action">View Assigned Subjects</a>
+                <a href="#" class="list-group-item list-group-item-action">View Schedule</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

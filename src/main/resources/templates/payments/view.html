@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details - University Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col">
+                <h2>Payment Details</h2>
+            </div>
+            <div class="col-auto">
+                <a th:href="@{/payments}" class="btn btn-secondary">Back to List</a>
+                <a th:href="@{/payments/{id}/edit(id=${payment.id})}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/payments/{id}/receipt(id=${payment.id})}" class="btn btn-primary" target="_blank">
+                    <i class="bi bi-printer"></i> Print Receipt
+                </a>
+            </div>
+        </div>
+        
+        <div class="card shadow mb-4">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">Payment #<span th:text="${payment.id}"></span></h4>
+                <span th:class="${payment.status == 'COMPLETED' ? 'badge bg-success' : (payment.status == 'PENDING' ? 'badge bg-warning' : 'badge bg-danger')}"
+                      th:text="${payment.status}"></span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <h5>Student Information</h5>
+                        <p>
+                            <strong>Name:</strong> <span th:text="${payment.student.firstName + ' ' + payment.student.lastName}"></span><br>
+                            <strong>ID:</strong> <span th:text="${payment.student.id}"></span><br>
+                            <strong>Email:</strong> <span th:text="${payment.student.email}"></span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Payment Information</h5>
+                        <p>
+                            <strong>Date:</strong> <span th:text="${#temporals.format(payment.paymentDate, 'dd MMMM yyyy')}"></span><br>
+                            <strong>Amount:</strong> <span th:text="${'$' + payment.amount}"></span><br>
+                            <strong>Method:</strong> <span th:text="${payment.paymentMethod}"></span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <h5>Payment Details</h5>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 30%">Reference Number</th>
+                                <td th:text="${payment.referenceNumber ?: 'N/A'}"></td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td th:text="${payment.status}"></td>
+                            </tr>
+                            <tr>
+                                <th>Remarks</th>
+                                <td th:text="${payment.remarks ?: 'N/A'}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Transaction History -->
+        <div class="card shadow">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0">Payment Timeline</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">Payment Created</h6>
+                            <small class="text-muted" th:text="${#temporals.format(payment.createdAt, 'dd MMM yyyy, HH:mm')}"></small>
+                        </div>
+                        <span class="badge bg-info">Created</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center" th:if="${payment.status == 'COMPLETED'}">
+                        <div>
+                            <h6 class="mb-0">Payment Completed</h6>
+                            <small class="text-muted" th:text="${#temporals.format(payment.updatedAt, 'dd MMM yyyy, HH:mm')}"></small>
+                        </div>
+                        <span class="badge bg-success">Completed</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center" th:if="${payment.status == 'FAILED'}">
+                        <div>
+                            <h6 class="mb-0">Payment Failed</h6>
+                            <small class="text-muted" th:text="${#temporals.format(payment.updatedAt, 'dd MMM yyyy, HH:mm')}"></small>
+                        </div>
+                        <span class="badge bg-danger">Failed</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center" th:if="${payment.status == 'REFUNDED'}">
+                        <div>
+                            <h6 class="mb-0">Payment Refunded</h6>
+                            <small class="text-muted" th:text="${#temporals.format(payment.updatedAt, 'dd MMM yyyy, HH:mm')}"></small>
+                        </div>
+                        <span class="badge bg-warning">Refunded</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

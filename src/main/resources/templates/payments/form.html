@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form - University Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col">
+                <h2 th:text="${payment.id == null ? 'Record Payment' : 'Edit Payment'}">Payment Form</h2>
+            </div>
+            <div class="col-auto">
+                <a th:href="@{/payments}" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+        
+        <div class="card shadow">
+            <div class="card-body">
+                <form th:action="@{/payments}" th:object="${payment}" method="post">
+                    <input type="hidden" th:field="*{id}" />
+                    
+                    <div class="mb-3">
+                        <label for="student" class="form-label">Student</label>
+                        <select class="form-select" id="student" th:field="*{student}" required>
+                            <option value="">Select a student</option>
+                            <option th:each="student : ${students}" 
+                                    th:value="${student.id}" 
+                                    th:text="${student.firstName + ' ' + student.lastName}">
+                            </option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('student')}" th:errors="*{student}"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount</label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="amount" th:field="*{amount}" 
+                                   step="0.01" min="0" required>
+                        </div>
+                        <div class="text-danger" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentDate" class="form-label">Payment Date</label>
+                        <input type="date" class="form-control" id="paymentDate" th:field="*{paymentDate}" required>
+                        <div class="text-danger" th:if="${#fields.hasErrors('paymentDate')}" th:errors="*{paymentDate}"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Payment Method</label>
+                        <select class="form-select" id="paymentMethod" th:field="*{paymentMethod}" required>
+                            <option value="">Select payment method</option>
+                            <option value="CREDIT_CARD">Credit Card</option>
+                            <option value="DEBIT_CARD">Debit Card</option>
+                            <option value="BANK_TRANSFER">Bank Transfer</option>
+                            <option value="CASH">Cash</option>
+                            <option value="CHEQUE">Cheque</option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('paymentMethod')}" th:errors="*{paymentMethod}"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="referenceNumber" class="form-label">Reference Number</label>
+                        <input type="text" class="form-control" id="referenceNumber" th:field="*{referenceNumber}">
+                        <div class="text-danger" th:if="${#fields.hasErrors('referenceNumber')}" th:errors="*{referenceNumber}"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" th:field="*{status}" required>
+                            <option value="PENDING">Pending</option>
+                            <option value="COMPLETED">Completed</option>
+                            <option value="FAILED">Failed</option>
+                            <option value="REFUNDED">Refunded</option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="remarks" class="form-label">Remarks</label>
+                        <textarea class="form-control" id="remarks" th:field="*{remarks}" rows="2"></textarea>
+                        <div class="text-danger" th:if="${#fields.hasErrors('remarks')}" th:errors="*{remarks}"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Save Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
