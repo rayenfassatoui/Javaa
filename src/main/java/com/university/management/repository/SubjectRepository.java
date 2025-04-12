@@ -19,8 +19,6 @@ public interface SubjectRepository extends JpaRepository<Subject, Long> {
     
     boolean existsByCode(String code);
     
-    List<Subject> findByCredits(Integer credits);
-    
     List<Subject> findByCreditHours(Integer creditHours);
     
     List<Subject> findByTeachers(Teacher teacher);
