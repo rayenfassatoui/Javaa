@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Payments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-4">
+        <div class="row mb-4">
+            <div class="col">
+                <h2>Student Payment Details</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/payments">Payments</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Student Payments</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Student Information -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Student Information</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Name:</strong> <span th:text="${student.firstName + ' ' + student.lastName}"></span></p>
+                        <p><strong>Student ID:</strong> <span th:text="${student.id}"></span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Email:</strong> <span th:text="${student.email}"></span></p>
+                        <p><strong>Department:</strong> <span th:text="${student.department}"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Summary -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Payment Summary</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="alert alert-info">
+                            <h6 class="alert-heading">Total Fees</h6>
+                            <p class="mb-0" th:text="${#numbers.formatCurrency(totalFees)}">$0.00</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="alert alert-success">
+                            <h6 class="alert-heading">Amount Paid</h6>
+                            <p class="mb-0" th:text="${#numbers.formatCurrency(amountPaid)}">$0.00</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="alert alert-warning">
+                            <h6 class="alert-heading">Outstanding Balance</h6>
+                            <p class="mb-0" th:text="${#numbers.formatCurrency(outstandingBalance)}">$0.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment History Table -->
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="card-title">Payment History</h5>
+                    <a th:href="@{/payments/new(studentId=${student.id})}" class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Record New Payment
+                    </a>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Payment ID</th>
+                                <th>Amount</th>
+                                <th>Payment Method</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="payment : ${payments}">
+                                <td th:text="${#temporals.format(payment.paymentDate, 'dd-MM-yyyy')}"></td>
+                                <td th:text="${payment.paymentId}"></td>
+                                <td th:text="${#numbers.formatCurrency(payment.amount)}"></td>
+                                <td th:text="${payment.paymentMethod}"></td>
+                                <td>
+                                    <span th:class="${'badge ' + (payment.status == 'COMPLETED' ? 'bg-success' : 
+                                                      payment.status == 'PENDING' ? 'bg-warning' : 
+                                                      payment.status == 'FAILED' ? 'bg-danger' : 'bg-secondary')}" 
+                                          th:text="${payment.status}">Status</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a th:href="@{/payments/{id}/view(id=${payment.id})}" 
+                                           class="btn btn-sm btn-info">
+                                            <i class="bi bi-eye"></i> View
+                                        </a>
+                                        <a th:href="@{/payments/{id}/receipt(id=${payment.id})}" 
+                                           class="btn btn-sm btn-secondary">
+                                            <i class="bi bi-download"></i> Receipt
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr th:if="${#lists.isEmpty(payments)}">
+                                <td colspan="6" class="text-center">No payment records found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <nav th:if="${payments instanceof T(org.springframework.data.domain.Page) and payments.totalPages > 1}" aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" th:classappend="${!payments.hasPrevious() ? 'disabled' : ''}">
+                            <a class="page-link" th:href="@{/payments/student(page=${payments.number - 1})}">
+                                Previous
+                            </a>
+                        </li>
+                        <li class="page-item" th:each="pageNumber : ${#numbers.sequence(0, payments.totalPages - 1)}" 
+                            th:classappend="${pageNumber == payments.number ? 'active' : ''}">
+                            <a class="page-link" th:href="@{/payments/student(page=${pageNumber})}" 
+                               th:text="${pageNumber + 1}">1</a>
+                        </li>
+                        <li class="page-item" th:classappend="${!payments.hasNext() ? 'disabled' : ''}">
+                            <a class="page-link" th:href="@{/payments/student(page=${payments.number + 1})}">
+                                Next
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</body>
+</html>

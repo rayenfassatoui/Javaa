@@ -54,10 +54,9 @@
                         <label for="paymentMethod" class="form-label">Payment Method</label>
                         <select class="form-select" id="paymentMethod" th:field="*{paymentMethod}" required>
                             <option value="">Select payment method</option>
-                            <option value="CASH">Cash</option>
-                            <option value="CREDIT_CARD">Credit Card</option>
-                            <option value="BANK_TRANSFER">Bank Transfer</option>
-                            <option value="CHECK">Check</option>
+                            <option th:each="method : ${T(com.university.management.model.Payment.PaymentMethod).values()}"
+                                    th:value="${method}" 
+                                    th:text="${#strings.replace(#strings.toLowerCase(method), '_', ' ')}">Payment Method</option>
                         </select>
                         <div class="text-danger" th:if="${#fields.hasErrors('paymentMethod')}" th:errors="*{paymentMethod}"></div>
                     </div>
