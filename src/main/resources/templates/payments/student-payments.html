@@ -90,13 +90,11 @@
                         <tbody>
                             <tr th:each="payment : ${payments}">
                                 <td th:text="${#temporals.format(payment.paymentDate, 'dd-MM-yyyy')}"></td>
-                                <td th:text="${payment.paymentId}"></td>
+                                <td th:text="${payment.id}"></td>
                                 <td th:text="${#numbers.formatCurrency(payment.amount)}"></td>
                                 <td th:text="${payment.paymentMethod}"></td>
                                 <td>
-                                    <span th:class="${'badge ' + (payment.status == 'COMPLETED' ? 'bg-success' : 
-                                                      payment.status == 'PENDING' ? 'bg-warning' : 
-                                                      payment.status == 'FAILED' ? 'bg-danger' : 'bg-secondary')}" 
+                                    <span th:class="${payment.status == 'COMPLETED' ? 'badge bg-success' : (payment.status == 'PENDING' ? 'badge bg-warning' : 'badge bg-danger')}" 
                                           th:text="${payment.status}">Status</span>
                                 </td>
                                 <td>

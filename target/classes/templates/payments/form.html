@@ -44,11 +44,7 @@
                         <div class="text-danger" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></div>
                     </div>
                     
-                    <div class="mb-3">
-                        <label for="paymentDate" class="form-label">Payment Date</label>
-                        <input type="date" class="form-control" id="paymentDate" th:field="*{paymentDate}" required>
-                        <div class="text-danger" th:if="${#fields.hasErrors('paymentDate')}" th:errors="*{paymentDate}"></div>
-                    </div>
+                    <!-- Payment date is automatically set on creation -->
                     
                     <div class="mb-3">
                         <label for="paymentMethod" class="form-label">Payment Method</label>
@@ -68,9 +64,9 @@
                     </div>
                     
                     <div class="mb-3">
-                        <label for="remarks" class="form-label">Remarks</label>
-                        <textarea class="form-control" id="remarks" name="remarks" th:text="*{remarks}" rows="2"></textarea>
-                        <div class="text-danger" th:if="${#fields.hasErrors('remarks')}" th:errors="*{remarks}"></div>
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" th:field="*{description}" rows="2"></textarea>
+                        <div class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Save Payment</button>
