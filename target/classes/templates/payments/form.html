@@ -68,19 +68,8 @@
                     </div>
                     
                     <div class="mb-3">
-                        <label for="status" class="form-label">Status</label>
-                        <select class="form-select" id="status" th:field="*{status}" required>
-                            <option value="PENDING">Pending</option>
-                            <option value="COMPLETED">Completed</option>
-                            <option value="FAILED">Failed</option>
-                            <option value="REFUNDED">Refunded</option>
-                        </select>
-                        <div class="text-danger" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></div>
-                    </div>
-                    
-                    <div class="mb-3">
                         <label for="remarks" class="form-label">Remarks</label>
-                        <textarea class="form-control" id="remarks" th:field="*{remarks}" rows="2"></textarea>
+                        <textarea class="form-control" id="remarks" name="remarks" th:text="*{remarks}" rows="2"></textarea>
                         <div class="text-danger" th:if="${#fields.hasErrors('remarks')}" th:errors="*{remarks}"></div>
                     </div>
                     
