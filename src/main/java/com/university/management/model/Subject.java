@@ -111,4 +111,17 @@ public class Subject {
     public void setTeachers(Set<Teacher> teachers) {
         this.teachers = teachers;
     }
+    
+    @ManyToMany(mappedBy = "subjects")
+    private Set<Student> students = new HashSet<>();
+    
+    // Explicit getter for students to ensure compatibility
+    public Set<Student> getStudents() {
+        return students;
+    }
+    
+    // Explicit setter for students to ensure compatibility
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
 }

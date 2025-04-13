@@ -48,6 +48,18 @@ public class Teacher {
     )
     private Set<Subject> subjects = new HashSet<>();
     
+    // Helper method to add subject and maintain bidirectional relationship
+    public void addSubject(Subject subject) {
+        this.subjects.add(subject);
+        subject.getTeachers().add(this);
+    }
+    
+    // Helper method to remove subject and maintain bidirectional relationship
+    public void removeSubject(Subject subject) {
+        this.subjects.remove(subject);
+        subject.getTeachers().remove(this);
+    }
+    
     // Explicit getter for id to ensure compatibility
     public Long getId() {
         return id;

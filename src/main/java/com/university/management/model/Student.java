@@ -56,10 +56,28 @@ public class Student {
         inverseJoinColumns = @JoinColumn(name = "subject_id")
     )
     private Set<Subject> subjects = new HashSet<>();
+    
+    // Helper method to add subject and maintain bidirectional relationship
+    public void addSubject(Subject subject) {
+        this.subjects.add(subject);
+        subject.getStudents().add(this);
+    }
+    
+    // Helper method to remove subject and maintain bidirectional relationship
+    public void removeSubject(Subject subject) {
+        this.subjects.remove(subject);
+        subject.getStudents().remove(this);
+    }
 
     @Past(message = "Date of birth must be in the past")
     @Column(name = "dob")
     private LocalDate dateOfBirth;
+    
+    @Column(name = "guardian_name")
+    private String guardianName;
+    
+    @Column(name = "guardian_contact")
+    private String guardianContact;
 
     @Column(name = "registration_date", updatable = false)
     private LocalDateTime registrationDate;
@@ -182,6 +200,26 @@ public class Student {
     // Convenience method to get dateOfBirth as java.sql.Date if needed
     public java.sql.Date getDateOfBirthAsSqlDate() {
         return dateOfBirth != null ? java.sql.Date.valueOf(dateOfBirth) : null;
+    }
+    
+    // Explicit getter for guardianName to ensure compatibility
+    public String getGuardianName() {
+        return guardianName;
+    }
+    
+    // Explicit setter for guardianName to ensure compatibility
+    public void setGuardianName(String guardianName) {
+        this.guardianName = guardianName;
+    }
+    
+    // Explicit getter for guardianContact to ensure compatibility
+    public String getGuardianContact() {
+        return guardianContact;
+    }
+    
+    // Explicit setter for guardianContact to ensure compatibility
+    public void setGuardianContact(String guardianContact) {
+        this.guardianContact = guardianContact;
     }
 
 }
