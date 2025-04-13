@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form - University Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col">
+                <h2 th:text="${enrollment.id == null ? 'Create New Enrollment' : 'Edit Enrollment'}"></h2>
+            </div>
+            <div class="col-auto">
+                <a th:href="@{/enrollments}" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <form th:action="@{/enrollments}" th:object="${enrollment}" method="post">
+                    <input type="hidden" th:field="*{id}" />
+                    
+                    <div class="mb-3">
+                        <label for="student" class="form-label">Student</label>
+                        <select th:field="*{student}" class="form-select" required>
+                            <option value="">-- Select Student --</option>
+                            <option th:each="student : ${students}" 
+                                    th:value="${student.id}" 
+                                    th:text="${student.firstName + ' ' + student.lastName}"></option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('student')}" th:errors="*{student}"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="enrolledClass" class="form-label">Class</label>
+                        <select th:field="*{enrolledClass}" class="form-select" required>
+                            <option value="">-- Select Class --</option>
+                            <option th:each="class : ${classes}" 
+                                    th:value="${class.id}" 
+                                    th:text="${class.name}"></option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('enrolledClass')}" th:errors="*{enrolledClass}"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select th:field="*{status}" class="form-select" required>
+                            <option th:each="statusOption : ${statuses}" 
+                                    th:value="${statusOption}" 
+                                    th:text="${statusOption}"></option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></div>
+                    </div>
+                    
+                    <div class="mb-3" th:if="${enrollment.id != null}">
+                        <label class="form-label">Enrollment Date</label>
+                        <p class="form-control-plaintext" th:text="${#temporals.format(enrollment.enrollmentDate, 'yyyy-MM-dd HH:mm')}"></p>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a th:href="@{/enrollments}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
