@@ -35,12 +35,12 @@
 
                     <!-- Class Selection -->
                     <div class="mb-3">
-                        <label for="enrolledClass" class="form-label">Class</label>
-                        <select class="form-select" id="enrolledClass" th:field="*{enrolledClass}" required>
+                        <label for="classSubject" class="form-label">Class</label>
+                        <select class="form-select" id="classSubject" th:field="*{classSubject}" required>
                             <option value="">Select a class</option>
-                            <option th:each="class : ${classes}"
-                                    th:value="${class.id}"
-                                    th:text="${class.name}"></option>
+                            <option th:each="subject : ${classSubjects}"
+                                    th:value="${subject.id}"
+                                    th:text="${subject.name}"></option>
                         </select>
                         <div class="invalid-feedback">Please select a class.</div>
                     </div>
