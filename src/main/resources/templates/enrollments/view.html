@@ -47,9 +47,9 @@
                 <div class="row mb-2">
                     <div class="col-md-3 fw-bold">Status:</div>
                     <div class="col-md-9">
-                        <span th:class="${'badge ' + (enrollment.status == T(com.university.management.model.Enrollment.EnrollmentStatus).ACTIVE ? 'bg-success' : 
-                                          (enrollment.status == T(com.university.management.model.Enrollment.EnrollmentStatus).COMPLETED ? 'bg-primary' : 
-                                          (enrollment.status == T(com.university.management.model.Enrollment.EnrollmentStatus).WITHDRAWN ? 'bg-warning' : 'bg-danger')))}" 
+                        <span th:class="${'badge ' + (enrollment.status == 'ACTIVE' ? 'bg-success' : 
+                                          (enrollment.status == 'COMPLETED' ? 'bg-primary' : 
+                                          (enrollment.status == 'WITHDRAWN' ? 'bg-warning' : 'bg-danger')))}"
                               th:text="${enrollment.status}"></span>
                     </div>
                 </div>
