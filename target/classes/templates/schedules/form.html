@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Form - University Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col">
+                <h2 th:text="${schedule.id != null ? 'Edit Schedule' : 'New Schedule'}">Schedule Form</h2>
+            </div>
+            <div class="col-auto">
+                <a th:href="@{/schedules}" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+
+        <!-- Alert Messages -->
+        <div th:if="${successMessage}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${successMessage}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        
+        <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${errorMessage}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <form th:action="@{/schedules/save}" th:object="${schedule}" method="post" class="needs-validation" novalidate>
+                    <input type="hidden" th:field="*{id}">
+
+                    <!-- Class Selection -->
+                    <div class="mb-3">
+                        <label for="enrolledClass" class="form-label">Class</label>
+                        <select class="form-select" id="enrolledClass" th:field="*{enrolledClass}" required>
+                            <option value="">Select a class</option>
+                            <option th:each="class : ${classes}"
+                                    th:value="${class.id}"
+                                    th:text="${class.name}"></option>
+                        </select>
+                        <div class="invalid-feedback">Please select a class.</div>
+                    </div>
+
+                    <!-- Instructor -->
+                    <div class="mb-3">
+                        <label for="instructor" class="form-label">Instructor</label>
+                        <input type="text" class="form-control" id="instructor" th:field="*{instructor}" required>
+                        <div class="invalid-feedback">Please enter an instructor name.</div>
+                    </div>
+
+                    <!-- Room -->
+                    <div class="mb-3">
+                        <label for="room" class="form-label">Room</label>
+                        <input type="text" class="form-control" id="room" th:field="*{room}" required>
+                        <div class="invalid-feedback">Please enter a room.</div>
+                    </div>
+
+                    <!-- Day -->
+                    <div class="mb-3">
+                        <label for="day" class="form-label">Day</label>
+                        <select class="form-select" id="day" th:field="*{day}" required>
+                            <option value="">Select a day</option>
+                            <option value="MONDAY">Monday</option>
+                            <option value="TUESDAY">Tuesday</option>
+                            <option value="WEDNESDAY">Wednesday</option>
+                            <option value="THURSDAY">Thursday</option>
+                            <option value="FRIDAY">Friday</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a day.</div>
+                    </div>
+
+                    <!-- Time Slot -->
+                    <div class="mb-3">
+                        <label for="timeSlot" class="form-label">Time Slot</label>
+                        <select class="form-select" id="timeSlot" th:field="*{timeSlot}" required>
+                            <option value="">Select a time slot</option>
+                            <option value="08:00-09:30">08:00-09:30</option>
+                            <option value="09:45-11:15">09:45-11:15</option>
+                            <option value="11:30-13:00">11:30-13:00</option>
+                            <option value="14:00-15:30">14:00-15:30</option>
+                            <option value="15:45-17:15">15:45-17:15</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a time slot.</div>
+                    </div>
+
+                    <!-- Department -->
+                    <div class="mb-3">
+                        <label for="department" class="form-label">Department</label>
+                        <select class="form-select" id="department" th:field="*{department}" required>
+                            <option value="">Select a department</option>
+                            <option th:each="dept : ${departments}"
+                                    th:value="${dept}"
+                                    th:text="${dept}"></option>
+                        </select>
+                        <div class="invalid-feedback">Please select a department.</div>
+                    </div>
+
+                    <!-- Semester -->
+                    <div class="mb-3">
+                        <label for="semester" class="form-label">Semester</label>
+                        <select class="form-select" id="semester" th:field="*{semester}" required>
+                            <option value="">Select a semester</option>
+                            <option th:each="sem : ${semesters}"
+                                    th:value="${sem}"
+                                    th:text="${sem}"></option>
+                        </select>
+                        <div class="invalid-feedback">Please select a semester.</div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-primary">Save Schedule</button>
+                        <a th:href="@{/schedules}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+</html>
