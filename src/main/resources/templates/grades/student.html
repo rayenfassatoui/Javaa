@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grades - University Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col">
+                <h2>Grades for <span th:text="${student.firstName + ' ' + student.lastName}"></span></h2>
+            </div>
+            <div class="col-auto">
+                <a th:href="@{/students/view/{id}(id=${student.id})}" class="btn btn-secondary">Back to Student</a>
+            </div>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-body">
+                <div th:if="${grades.empty}" class="alert alert-info">
+                    No grades recorded for this student yet.
+                </div>
+                
+                <div th:if="${!grades.empty}" class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Grade</th>
+                                <th>Date</th>
+                                <th>Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="grade : ${grades}">
+                                <td th:text="${grade.subject.name}"></td>
+                                <td>
+                                    <span th:text="${#numbers.formatDecimal(grade.value, 1, 1)}"></span>%
+                                    <span th:if="${grade.value >= 90}" class="badge bg-success">Excellent</span>
+                                    <span th:if="${grade.value >= 80 && grade.value < 90}" class="badge bg-primary">Very Good</span>
+                                    <span th:if="${grade.value >= 70 && grade.value < 80}" class="badge bg-info">Good</span>
+                                    <span th:if="${grade.value >= 60 && grade.value < 70}" class="badge bg-warning">Pass</span>
+                                    <span th:if="${grade.value < 60}" class="badge bg-danger">Fail</span>
+                                </td>
+                                <td th:text="${#temporals.format(grade.gradeDate, 'yyyy-MM-dd HH:mm')}"></td>
+                                <td th:text="${grade.comments}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
