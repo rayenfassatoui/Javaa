@@ -40,16 +40,9 @@
                             <option value="">Select a class</option>
                             <option th:each="subject : ${classSubjects}"
                                     th:value="${subject.id}"
-                                    th:text="${subject.name}"></option>
+                                    th:text="${subject.classEntity.name + ' - ' + subject.subject.name + ' (' + subject.teacher.name + ')'}"></option>
                         </select>
                         <div class="invalid-feedback">Please select a class.</div>
-                    </div>
-
-                    <!-- Instructor -->
-                    <div class="mb-3">
-                        <label for="instructor" class="form-label">Instructor</label>
-                        <input type="text" class="form-control" id="instructor" th:field="*{instructor}" required>
-                        <div class="invalid-feedback">Please enter an instructor name.</div>
                     </div>
 
                     <!-- Room -->
@@ -59,56 +52,32 @@
                         <div class="invalid-feedback">Please enter a room.</div>
                     </div>
 
-                    <!-- Day -->
+                    <!-- Day of Week -->
                     <div class="mb-3">
-                        <label for="day" class="form-label">Day</label>
-                        <select class="form-select" id="day" th:field="*{day}" required>
+                        <label for="dayOfWeek" class="form-label">Day of Week</label>
+                        <select class="form-select" id="dayOfWeek" th:field="*{dayOfWeek}" required>
                             <option value="">Select a day</option>
-                            <option value="MONDAY">Monday</option>
-                            <option value="TUESDAY">Tuesday</option>
-                            <option value="WEDNESDAY">Wednesday</option>
-                            <option value="THURSDAY">Thursday</option>
-                            <option value="FRIDAY">Friday</option>
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
                         </select>
                         <div class="invalid-feedback">Please select a day.</div>
                     </div>
 
-                    <!-- Time Slot -->
+                    <!-- Start Time -->
                     <div class="mb-3">
-                        <label for="timeSlot" class="form-label">Time Slot</label>
-                        <select class="form-select" id="timeSlot" th:field="*{timeSlot}" required>
-                            <option value="">Select a time slot</option>
-                            <option value="08:00-09:30">08:00-09:30</option>
-                            <option value="09:45-11:15">09:45-11:15</option>
-                            <option value="11:30-13:00">11:30-13:00</option>
-                            <option value="14:00-15:30">14:00-15:30</option>
-                            <option value="15:45-17:15">15:45-17:15</option>
-                        </select>
-                        <div class="invalid-feedback">Please select a time slot.</div>
+                        <label for="startTime" class="form-label">Start Time</label>
+                        <input type="time" class="form-control" id="startTime" th:field="*{startTime}" required>
+                        <div class="invalid-feedback">Please select a start time.</div>
                     </div>
 
-                    <!-- Department -->
+                    <!-- End Time -->
                     <div class="mb-3">
-                        <label for="department" class="form-label">Department</label>
-                        <select class="form-select" id="department" th:field="*{department}" required>
-                            <option value="">Select a department</option>
-                            <option th:each="dept : ${departments}"
-                                    th:value="${dept}"
-                                    th:text="${dept}"></option>
-                        </select>
-                        <div class="invalid-feedback">Please select a department.</div>
-                    </div>
-
-                    <!-- Semester -->
-                    <div class="mb-3">
-                        <label for="semester" class="form-label">Semester</label>
-                        <select class="form-select" id="semester" th:field="*{semester}" required>
-                            <option value="">Select a semester</option>
-                            <option th:each="sem : ${semesters}"
-                                    th:value="${sem}"
-                                    th:text="${sem}"></option>
-                        </select>
-                        <div class="invalid-feedback">Please select a semester.</div>
+                        <label for="endTime" class="form-label">End Time</label>
+                        <input type="time" class="form-control" id="endTime" th:field="*{endTime}" required>
+                        <div class="invalid-feedback">Please select an end time.</div>
                     </div>
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
