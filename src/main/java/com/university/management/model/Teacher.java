@@ -39,6 +39,10 @@ public class Teacher {
 
     @Column(name = "specialization", length = 100)
     private String specialization;
+
+    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "Phone number should be valid")
+    @Column(name = "phone", length = 20)
+    private String phone;
     
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
