@@ -57,7 +57,7 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     @Transactional(readOnly = true)
     public List<Payment> getPaymentsByDateRange(LocalDateTime startDate, LocalDateTime endDate) {
-        return paymentRepository.findByPaymentDateTimeBetween(startDate, endDate);
+        return paymentRepository.findByPaymentDateBetween(startDate.toLocalDate(), endDate.toLocalDate());
     }
 
     @Override
@@ -92,4 +92,4 @@ public class PaymentServiceImpl implements PaymentService {
                 .map(Payment::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
-} 
+}

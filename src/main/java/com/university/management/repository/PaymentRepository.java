@@ -15,7 +15,6 @@ import java.util.List;
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
     List<Payment> findByStudent(Student student);
     List<Payment> findByPaymentDateBetween(LocalDate startDate, LocalDate endDate);
-    List<Payment> findByPaymentDateBetween(LocalDateTime startDate, LocalDateTime endDate);
     List<Payment> findByAmountGreaterThan(BigDecimal amount);
     List<Payment> findByAmountGreaterThanEqual(Double amount);
     List<Payment> findByPaymentMethod(PaymentMethod paymentMethod);
